@@ -1,8 +1,10 @@
+using Application.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using WebUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Add services to the container
 builder.Services.AddInfraServices(builder.Configuration);
 
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
