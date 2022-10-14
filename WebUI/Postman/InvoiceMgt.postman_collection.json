@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "c7ebac37-fa6d-4ea5-9928-799901ae263c",
+		"name": "InvoiceMgt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateInvoice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkRldmVsb3BtZW50IiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDQ5NSIsIm5iZiI6MTY2NTc0MjcyNSwiaWF0IjoxNjY1NzQyNzI1LCJleHAiOjE2NjU3NDYzMjUsImF1ZCI6IldlYlVJQVBJIiwic2NvcGUiOlsiV2ViVUlBUEkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXSwiY2xpZW50X2lkIjoiV2ViVUkiLCJzdWIiOiI4ZWIzOTRlZi1hYjg4LTQ0MTYtYjZkYy1hZGJkYjNiNzQyNTciLCJhdXRoX3RpbWUiOjE2NjU3MzY2NjMsImlkcCI6ImxvY2FsIiwic2lkIjoiNjFBRjQyQTc2RTdBRjRFOEExQ0ZDQTlFREUyMjA2NjUiLCJqdGkiOiI4RkI2MjVGRTQ4RkI3NzkyMjcwRTk4RTJGN0FGQ0YzNiJ9.ZzkXXwuYjmWbbIsuQVSRWDRf2T_ecumbYZgOx55_JltX3LRQuM-hVPbnVTo2Qzv0Dam2TmPWB8aB-zO7qafEX3FWKI4aJEwyH1RYi6ATrmRqcSMro_lUpMPCbrlg0otLe8cdN80xUEa8dUjpQDwVcDe0aDCnPlGe0Jxhh-yZW3IhiTkqrmEBYhOblWRIMfABbsF05YbK27dVrBHqom26zwcc9Wh9_wb6tHdyJtEZh3oM5qIrmbmJYqqMggwXV2xS1RGXClNYGObpY2osVNzZW50kw2exTH-E7XDWkMiN64na5tYpslylhaRiIFNplZcwupqBfueMzVQe0UX8gwUh8w",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"invoiceNumber\": \"IN-125\",\r\n  \"logo\": \"XyC\",\r\n  \"from\": \"ABC Company\",\r\n  \"to\": \"XYC Company\",\r\n  \"date\": \"2022-01-01T00:00:00\",\r\n  \"paymentTerms\": \"Now\",\r\n  \"dueDate\": null,\r\n  \"discountType\": 0,\r\n  \"discount\": 0,\r\n  \"taxType\": 0,\r\n  \"tax\": 0,\r\n  \"amountPaid\": 0,\r\n  \"invoiceItems\": [{\"item\": \"sample 1\", \"quantity\": 10, \"rate\": 15}]\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:7287/api/invoices",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7287",
+					"path": [
+						"api",
+						"invoices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserInvoices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkRldmVsb3BtZW50IiwidHlwIjoiYXQrand0In0.eyJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDQ5NSIsIm5iZiI6MTY2NTc0MjcyNSwiaWF0IjoxNjY1NzQyNzI1LCJleHAiOjE2NjU3NDYzMjUsImF1ZCI6IldlYlVJQVBJIiwic2NvcGUiOlsiV2ViVUlBUEkiLCJvcGVuaWQiLCJwcm9maWxlIl0sImFtciI6WyJwd2QiXSwiY2xpZW50X2lkIjoiV2ViVUkiLCJzdWIiOiI4ZWIzOTRlZi1hYjg4LTQ0MTYtYjZkYy1hZGJkYjNiNzQyNTciLCJhdXRoX3RpbWUiOjE2NjU3MzY2NjMsImlkcCI6ImxvY2FsIiwic2lkIjoiNjFBRjQyQTc2RTdBRjRFOEExQ0ZDQTlFREUyMjA2NjUiLCJqdGkiOiI4RkI2MjVGRTQ4RkI3NzkyMjcwRTk4RTJGN0FGQ0YzNiJ9.ZzkXXwuYjmWbbIsuQVSRWDRf2T_ecumbYZgOx55_JltX3LRQuM-hVPbnVTo2Qzv0Dam2TmPWB8aB-zO7qafEX3FWKI4aJEwyH1RYi6ATrmRqcSMro_lUpMPCbrlg0otLe8cdN80xUEa8dUjpQDwVcDe0aDCnPlGe0Jxhh-yZW3IhiTkqrmEBYhOblWRIMfABbsF05YbK27dVrBHqom26zwcc9Wh9_wb6tHdyJtEZh3oM5qIrmbmJYqqMggwXV2xS1RGXClNYGObpY2osVNzZW50kw2exTH-E7XDWkMiN64na5tYpslylhaRiIFNplZcwupqBfueMzVQe0UX8gwUh8w",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:7287/api/invoices",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7287",
+					"path": [
+						"api",
+						"invoices"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
