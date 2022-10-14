@@ -1,3 +1,4 @@
+using Application;
 using Application.Common;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
@@ -10,9 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //Add services to the container
+builder.Services.AddApplication();
 builder.Services.AddInfraServices(builder.Configuration);
 
-builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
