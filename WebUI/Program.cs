@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using WebUI;
 using WebUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,11 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Add services to the container
 builder.Services.AddApplication();
 builder.Services.AddInfraServices(builder.Configuration);
+builder.Services.AddWebUi();
 
-builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -34,6 +32,17 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+
+//app.UseSwaggerUi3(settings =>
+//{
+//    settings.Path = "/api";
+//    settings.DocumentPath = "/api/specification.json";
+//});
+
+app.UseOpenApi();
+app.UseSwaggerUi3();
+
 app.UseRouting();
 
 app.UseAuthentication();
